@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berbagi Cerita</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #ec7fa9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: #0b1820;
+      }
+
+      footer {
+        margin-top: 4rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #000000;
+        padding: 1rem;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        z-index: 100;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+    <header>
+      <nav class="navbar">
+        <a href="#/" class="nav-brand">📖 Berbagi Cerita</a>
+        <div class="nav-links">
+          <a href="#/">Beranda</a>
+          <a href="#/add">Tambah Cerita</a>
+          <a href="#/login" id="auth-link">Login</a>
+        </div>
+      </nav>
+      <hr style="border: none; border-top: 1px solid #eee" />
+    </header>
+
+    <main id="main-content" class="container" tabindex="-1"></main>
+
+    <footer>
+      <p>&copy; 2025 Berbagi Cerita. Dibuat dengan ❤ oleh Rurin Nurhaliza.</p>
+    </footer>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz0kNiEXS1tP8jSaTsJn3ciBXU18BCi34&libraries=places"
+    ></script>
+    <script>
+      const mainContent = document.querySelector("#main-content");
+      const skipLink = document.querySelector(".skip-link");
+
+      skipLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        skipLink.blur();
+        mainContent.focus();
+        mainContent.scrollIntoView();
+      });
+    </script>
+
+    <!-- Script utama -->
+    <script type="module" src="scripts/app.js" defer></script>
+  </body>
+</html>
