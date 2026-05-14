@@ -3,7 +3,7 @@
 A modern Single Page Application (SPA) for sharing stories with photos and location maps.  
 Built using JavaScript, Webpack, MVP Architecture, Google Maps API, and Story API from Dicoding.
 
-## ✨ Features
+## Features
 
 - User Authentication (Login/Register)
 - Display Stories from API
@@ -16,7 +16,7 @@ Built using JavaScript, Webpack, MVP Architecture, Google Maps API, and Story AP
 - Responsive Design
 - Accessibility Support (Skip to Content, Semantic HTML, Labels)
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3
