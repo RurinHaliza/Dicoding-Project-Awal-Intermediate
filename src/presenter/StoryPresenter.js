@@ -1,7 +1,18 @@
 import StoryModel from "../model/StoryModel.js";
+import AuthModel from "../model/AuthModel.js";
 
 const StoryPresenter = {
   async init({ container, page = 1, withLocation = false, onPageChange }) {
+    if (!AuthModel.isLoggedIn()) {
+        container.innerHTML = `
+          <div class="auth-warning">
+            <p>Silakan login terlebih dahulu.</p>
+            <a href="#/login">Login</a>
+          </div>
+        `;
+        return;
+      }
+
     container.innerHTML = '<p class="loading">Memuat cerita...</p>';
 
     try {
