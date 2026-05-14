@@ -5,23 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Berbagi Cerita</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Leaflet CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-
-    <!-- Leaflet JS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
@@ -67,6 +54,20 @@
         color: #000000;
         padding: 1rem;
       }
+
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        z-index: 100;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
     </style>
   <script defer src="bundle.js"></script></head>
 
@@ -79,8 +80,7 @@
         <div class="nav-links">
           <a href="#/">Beranda</a>
           <a href="#/add">Tambah Cerita</a>
-          <a href="#/login" id="login-nav">Login</a>
-          <a href="#" id="logout-nav" style="display: none">Logout</a>
+          <a href="#/login" id="auth-link">Login</a>
         </div>
       </nav>
       <hr style="border: none; border-top: 1px solid #eee" />
@@ -91,25 +91,24 @@
     <footer>
       <p>&copy; 2025 Berbagi Cerita. Dibuat dengan ❤ oleh Rurin Nurhaliza.</p>
     </footer>
-
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="bundle.js"></script>
     <script
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz0kNiEXS1tP8jSaTsJn3ciBXU18BCi34&libraries=places"
     ></script>
-    <script src="https://unpkg.com/feather-icons"></script>
     <script>
-  const mainContent = document.querySelector('/'); 
-  const skipLink = document.querySelector('.skip-link'); 
-  skipLink.addEventListener('click', function (event) {
-    event.preventDefault(); 
-    skipLink.blur(); 
- 
-    mainContent.focus(); 
-    mainContent.scrollIntoView(); 
-});
-    </script>    
+      const mainContent = document.querySelector("#main-content");
+      const skipLink = document.querySelector(".skip-link");
+
+      skipLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        skipLink.blur();
+        mainContent.focus();
+        mainContent.scrollIntoView();
+      });
+    </script>
+
+    <!-- Script utama -->
+    <script type="module" src="scripts/app.js" defer></script>
   </body>
 </html>
